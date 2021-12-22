@@ -4,6 +4,7 @@ import { useFetchApi } from './hooks/useFetchApi';
 
 function App() {
   const { loading, data: characters } = useFetchApi('https://www.breakingbadapi.com/api/characters');
+  console.log(characters);
   return (
     <div className="App">
       <header className="App-header">
