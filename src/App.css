@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.card img {
+  max-height: 300px;
+  object-fit: cover;
+  /* object-fit: contain; */
+  display: block;
+  width: 100%;
+}
+
+.image-section {
+  position: relative;
+  text-align: left;
+  color: #fff;
+}
+
+/* Bottom left text */
+.image-section .bottom-left {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  background-color: #212529 !important;
+  padding: 0 5px;
+  border-radius: 4px
+}
+
+.container-md {
+  margin-bottom: 40px;;
+}

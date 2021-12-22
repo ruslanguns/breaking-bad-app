@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 const Header = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div className="container-fluid">
       <button
         className="navbar-toggler"
