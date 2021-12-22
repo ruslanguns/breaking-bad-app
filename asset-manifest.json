@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/breaking-bad-app/static/css/main.87c1c599.css",
+    "main.js": "/breaking-bad-app/static/js/main.4d04446b.js",
+    "index.html": "/breaking-bad-app/index.html",
+    "main.87c1c599.css.map": "/breaking-bad-app/static/css/main.87c1c599.css.map",
+    "main.4d04446b.js.map": "/breaking-bad-app/static/js/main.4d04446b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87c1c599.css",
+    "static/js/main.4d04446b.js"
+  ]
+}
