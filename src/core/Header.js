@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-const paths =  {
-  home: '/breaking-bad-app/',
-  episodes: '/breaking-bad-app/episodes'
-};
+import { PATHS } from "./../helpers/paths";
+
 const Header = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div className="container-fluid">
@@ -18,17 +16,17 @@ const Header = () => (
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <Link to={paths.home} className="navbar-brand">
+        <Link to={PATHS.HOME} className="navbar-brand">
           Breaking Bad
         </Link>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <Link to={paths.home} className="nav-link active">
+            <Link to={PATHS.HOME} className="nav-link active">
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link to={paths.episodes} className="nav-link">
+            <Link to={PATHS.EPISODES} className="nav-link">
               Episodes
             </Link>
           </li>

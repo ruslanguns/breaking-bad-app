@@ -1,14 +1,18 @@
 import { useFetchApi } from "./../hooks/useFetchApi";
+import { API_URL_BASE, API_ENDPOINTS } from "./../helpers/urls";
+import { Ring } from "react-awesome-spinners";
+
 const Home = () => {
   const { loading, data } = useFetchApi(
-    "https://www.breakingbadapi.com/api/characters"
+    `${API_URL_BASE}${API_ENDPOINTS.CHARACTERS}`
   );
-  console.log(data, loading);
-
   return (
     <>
       <h1>Home!</h1>
       <p>Home page</p>
+      {loading && (
+        <span className="loading"><Ring size={454}/></span>
+      )}
       {!loading && (
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {data.map((character) => (
