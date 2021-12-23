@@ -12,7 +12,7 @@ const Home = () => {
       {!loading && (
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {data.map((character) => (
-            <div className="col">
+            <div className="col" key={character.char_id}>
               <div className="card">
                 <div className="image-section">
                   <img

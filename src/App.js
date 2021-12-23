@@ -4,13 +4,17 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Episodes from "./pages/Episodes";
 function App() {
+  const paths =  {
+    home: '/breaking-bad-app/',
+    episodes: '/breaking-bad-app/episodes'
+  };
   return (
     <>
       <Header />
-      <div class="container-md">
+      <div className="container-md">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="episodes" element={<Episodes />} />
+          <Route path={paths.home} element={<Home />} />
+          <Route path={paths.episodes} element={<Episodes />} />
         </Routes>
       </div>
     </>
