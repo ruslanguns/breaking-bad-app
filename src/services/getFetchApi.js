@@ -1,4 +1,4 @@
-export const fetchApi = (url) => {
+export const fetchRestApi = (url) => {
   return fetch(url)
     .then((resp) => resp.json())
     .then((data) => {

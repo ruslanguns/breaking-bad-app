@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchApi } from "../services/getFetchApi";
+import { fetchRestApi } from "../services/getFetchApi";
 
 export const useFetchApi = (url) => {
   const [state, setState] = useState({
@@ -7,7 +7,7 @@ export const useFetchApi = (url) => {
   });
 
   useEffect(() => {
-    fetchApi(url).then( data => {
+    fetchRestApi(url).then( data => {
       setState(data);
     })
   }, [url]);

@@ -1,6 +1,7 @@
 import { useFetchApi } from "./../hooks/useFetchApi";
 import { API_URL_BASE, API_ENDPOINTS } from "./../helpers/urls";
 import Loading from "../components/Loading";
+import PageTitle from "../components/PageTitle";
 
 const Episodes = () => {
   const { loading, data } = useFetchApi(
@@ -8,8 +9,7 @@ const Episodes = () => {
   );
   return (
     <>
-      <h1>Episodes!</h1>
-      <p>List of episodes</p>
+      <PageTitle title={"List of episodes"} />
       {loading && <Loading />}
       {!loading && (
         <div className="table-responsive">

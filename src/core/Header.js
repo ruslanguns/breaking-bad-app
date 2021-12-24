@@ -41,6 +41,17 @@ const Header = () => {
                 Episodes
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <NavLink
+                to={PATHS.VOTES}
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                Votes
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
