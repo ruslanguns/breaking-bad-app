@@ -1,30 +1,24 @@
-const Table = ({ characters }) => {
+const Table = ({ heads, items }) => {
+
   return (
     <>
       <div className="table-responsive">
         <table className="table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Actor</th>
-              <th>Info</th>
-              <th>Total Episodes</th>
-              <th>Votes</th>
+              {heads.map((element, index) => (
+                <th className="text-center" key={index}>
+                  {element}
+                </th>
+              ))}
             </tr>
           </thead>
-
           <tbody>
-            {characters.map((character, index) => (
+            {items.map((character, index) => (
               <tr key={index}>
-                <td>{character.name}</td>
-                <td>{character.actor}</td>
-                <td>
-                  <a href={character.url} target="_blank" rel="noreferrer">
-                    Wikipedia
-                  </a>
-                </td>
-                <td>{character.total_episodes}</td>
-                <td>{character.votes}</td>
+                {Object.keys(character).forEach((key, index) => (
+                  <td>{character[key]}</td>
+                ))}
               </tr>
             ))}
           </tbody>
@@ -35,3 +29,15 @@ const Table = ({ characters }) => {
 };
 
 export default Table;
+
+/*{
+  items.map((character) => {
+    let html = '';
+    Object.keys(character).forEach((key, index) => {
+      html += <tr>{character[key]}</tr>
+      console.log(character[key])
+    })
+    return html;
+    
+  })
+}*/

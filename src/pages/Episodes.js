@@ -7,6 +7,8 @@ const Episodes = () => {
   const { loading, data } = useFetchApi(
     `${API_URL_BASE}${API_ENDPOINTS.EPISODES}`
   );
+  const tableValues = ["Season", "Episode", "Title", "Air date", "Characters"];
+
   return (
     <>
       <PageTitle title={"List of episodes"} />
@@ -16,11 +18,9 @@ const Episodes = () => {
           <table className="table">
             <thead>
               <tr>
-                <th>Season</th>
-                <th>Episode</th>
-                <th>Title</th>
-                <th>Air Date</th>
-                <th>Characters</th>
+                {tableValues.map((value) => (
+                  <th className="text-center">{value}</th>
+                ))}
               </tr>
             </thead>
 

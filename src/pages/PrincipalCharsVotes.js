@@ -20,6 +20,8 @@ const PrincipalCharsVotes = () => {
     });
   }
 
+  const tableValues = ['Name', 'Actor', 'Info', 'Total Episodes', 'Votes'];
+
   return (
     <>
       <PageTitle title={"Principal Characters Votes"} />
@@ -46,11 +48,9 @@ const PrincipalCharsVotes = () => {
               <table className="table">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Actor</th>
-                    <th>Info</th>
-                    <th>Total Episodes</th>
-                    <th>Votes</th>
+                    {
+                      tableValues.map((value) => <th className="text-center">{value}</th>)
+                    }
                   </tr>
                 </thead>
 

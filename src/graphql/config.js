@@ -1,35 +1,67 @@
 import { ApolloClient, split, InMemoryCache, HttpLink } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
-import { getMainDefinition } from '@apollo/client/utilities';
-/*export const client = new ApolloClient({
-  uri: "https://breaking-bad-voting-graphql.herokuapp.com/graphql",
-  cache: new InMemoryCache(),
-});*/
+import { getMainDefinition } from "@apollo/client/utilities";
 
+export class GraphQLConfig {
+  #httpLink;
+  #wsLink;
+  #client;
+  #link;
 
-const httpLink = new HttpLink({
-    uri: "https://breaking-bad-voting-graphql.herokuapp.com/graphql"
-  });
-  
-  const wsLink = new WebSocketLink({
-    uri: `wss://breaking-bad-voting-graphql.herokuapp.com/graphql`,
-    options: {
-      reconnect: true
+  constructor(httpLink, wsLink = "") {
+    this.#setHttpLink(httpLink);
+    if (wsLink !== "") {
+      this.#setWsLink(wsLink);
+      this.#setLink();
+    } else {
+      this.#link = this.#httpLink;
     }
-  });
+    this.#setClient();
+  }
+  #setHttpLink(httpLink) {
+    this.#httpLink = new HttpLink({
+      uri: httpLink,
+    });
+  }
 
-  
-  
-  const link = split(
-    ({ query }) => {
-      const { kind, operation } = getMainDefinition(query);
-      return kind === "OperationDefinition" && operation === "subscription";
-    },
-    wsLink,
-    httpLink
-  );
-  
-  export const client = new ApolloClient({
-    link,
-    cache: new InMemoryCache()
-  });
+  #getHttpLink() {
+    return this.#httpLink;
+  }
+
+  #setWsLink(wsLink) {
+    this.#wsLink = new WebSocketLink({
+      uri: wsLink,
+      options: {
+        reconnect: true,
+      },
+    });
+  }
+
+  #getWsLink() {
+    return this.#wsLink;
+  }
+
+  #setLink() {
+    const httpLink = this.#getHttpLink();
+    const wsLink = this.#getWsLink();
+    this.#link = split(
+      ({ query }) => {
+        const { kind, operation } = getMainDefinition(query);
+        return kind === "OperationDefinition" && operation === "subscription";
+      },
+      wsLink,
+      httpLink
+    );
+  }
+
+  #setClient() {
+    this.#client = new ApolloClient({
+      link: this.#link,
+      cache: new InMemoryCache(),
+    });
+  }
+
+  getClient() {
+    return this.#client;
+  }
+}
