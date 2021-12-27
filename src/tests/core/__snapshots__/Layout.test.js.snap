@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en Layout Debe de mostrar <Layout /> correctamente 1`] = `
+<Fragment>
+  <Header />
+  <div
+    className="container-md"
+  >
+    <Routes>
+      <Route
+        element={<Home />}
+        path="/breaking-bad-app"
+      />
+      <Route
+        element={<Episodes />}
+        path="/breaking-bad-app/episodes"
+      />
+      <Route
+        element={<PrincipalCharsVotes />}
+        path="/breaking-bad-app/votes"
+      />
+      <NoMatch
+        default={true}
+      />
+    </Routes>
+  </div>
+  <Footer />
+</Fragment>
+`;

@@ -3,7 +3,6 @@ import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 
 export class GraphQLConfig {
-  #httpLink;
   #wsLink;
   #client;
   #link;
@@ -13,19 +12,17 @@ export class GraphQLConfig {
     if (wsLink !== "") {
       this.#setWsLink(wsLink);
       this.#setLink();
-    } else {
-      this.#link = this.#httpLink;
     }
     this.#setClient();
   }
   #setHttpLink(httpLink) {
-    this.#httpLink = new HttpLink({
+    this.#link = new HttpLink({
       uri: httpLink,
     });
   }
 
   #getHttpLink() {
-    return this.#httpLink;
+    return this.#link;
   }
 
   #setWsLink(wsLink) {
@@ -42,15 +39,13 @@ export class GraphQLConfig {
   }
 
   #setLink() {
-    const httpLink = this.#getHttpLink();
-    const wsLink = this.#getWsLink();
     this.#link = split(
       ({ query }) => {
         const { kind, operation } = getMainDefinition(query);
         return kind === "OperationDefinition" && operation === "subscription";
       },
-      wsLink,
-      httpLink
+      this.#getWsLink(),
+      this.#getHttpLink()
     );
   }
 

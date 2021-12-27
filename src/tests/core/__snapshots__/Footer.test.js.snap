@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en Footer Debe de mostrar <Footer /> correctamente 1`] = `
+<div
+  className="footer"
+>
+  <p>
+    Breaking Bad with React - Anartz Mugika Ledo - 
+    2021
+  </p>
+</div>
+`;
