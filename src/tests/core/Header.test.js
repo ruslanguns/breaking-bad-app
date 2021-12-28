@@ -35,4 +35,11 @@ describe("Pruebas en Header", () => {
     expect(wrapper.find("li").at(1).props().className).toBe(expectLiClassName);
     expect(wrapper.find("li").at(2).props().className).toBe(expectLiClassName);
   });
+
+  test("Comprobar si los NavLink correctamente configurados", () => {
+    
+    expect(wrapper.find("NavLink").at(1).prop("className")).toBeTruthy()
+    expect(wrapper.find("NavLink").at(2).prop("className")).toBeTruthy()
+    expect(wrapper.find("NavLink").at(3).prop("className")).toBeTruthy()
+  });
 });

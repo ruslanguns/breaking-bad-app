@@ -1,11 +1,12 @@
 import React from "react";
 import "@testing-library/jest-dom";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import App from "../App";
+import { ApolloProvider } from "@apollo/client";
 
 describe("Pruebas en App", () => {
   let wrapper;
-  
+  const clientConfig = jest.fn();
   beforeEach(() => {
     wrapper = shallow(<App />);
   });
@@ -18,4 +19,8 @@ describe("Pruebas en App", () => {
     expect(wrapper.find("Layout").length).toBe(1);
   });
 
+  test("Comprobar que se añade correctamente la inicializacion de ApolloProvider", () => {
+    const apolloWrapper = mount(<ApolloProvider client={clientConfig} />);
+    expect(apolloWrapper).toEqual({});
+  });
 });

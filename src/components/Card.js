@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Card = ({ character }) => (
   <div className="col" key={character.char_id}>
     <div className="card">
@@ -22,4 +24,8 @@ const Card = ({ character }) => (
   </div>
 );
 
+// Para obligar pasar el argumento para el objeto
+Card.propTypes = {
+  character: PropTypes.object.isRequired,
+};
 export default Card;

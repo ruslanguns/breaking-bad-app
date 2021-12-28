@@ -1,4 +1,6 @@
 import "./../styles/components.css";
+import PropTypes from "prop-types";
+
 const Button = ({ label }) => {
   return (
     <>
@@ -7,6 +9,11 @@ const Button = ({ label }) => {
       </button>
     </>
   );
+};
+
+// Para obligar pasar el argumento para el objeto
+Button.propTypes = {
+  label: PropTypes.string.isRequired,
 };
 
 export default Button;

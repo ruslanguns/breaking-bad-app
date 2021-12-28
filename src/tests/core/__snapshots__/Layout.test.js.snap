@@ -19,9 +19,6 @@ exports[`Pruebas en Layout Debe de mostrar <Layout /> correctamente 1`] = `
         element={<PrincipalCharsVotes />}
         path="/breaking-bad-app/votes"
       />
-      <NoMatch
-        default={true}
-      />
     </Routes>
   </div>
   <Footer />

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas de <Card /> Debe de mostrar <Button /> correctamente 1`] = `
+<div
+  className="col"
+  key="3"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="image-section"
+    >
+      <img
+        alt="Skyler White"
+        className="card-img-top"
+        src="https://s-i.huffpost.com/gen/1317262/images/o-ANNA-GUNN-facebook.jpg"
+      />
+      <span
+        className="bottom-left"
+      >
+        Anna Gunn
+      </span>
+    </div>
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Skyler White
+      </h5>
+      <p
+        className="card-text"
+      >
+        House wife, Book Keeper, Car Wash Manager, Taxi Dispatcher
+      </p>
+      <p
+        className="card-text"
+      >
+        <small
+          className="text-muted"
+        >
+          Appearance Seasons: 
+          1, 2, 3, 4, 5
+        </small>
+      </p>
+    </div>
+  </div>
+</div>
+`;
