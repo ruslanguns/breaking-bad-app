@@ -1,15 +1,31 @@
-import { useQuery } from "@apollo/client";
+import { useState, useEffect } from "react";
+import { useQuery, useMutation, useSubscription } from "@apollo/client";
+
+import { Loading, BarChart, Button, PageTitle } from "../components/";
+// GraphQL Operations
 import { PRINCIPAL_CHARACTERS_VOTES } from "../graphql/operations/query";
-import Loading from "../components/Loading";
-import BarChart from "../components/BarChart";
-import Button from "../components/Button";
-import PageTitle from "../components/PageTitle";
+import { CHANGE_VOTES_LISTENER } from "../graphql/operations/subscription";
+import { ADD_VOTE } from "../graphql/operations/mutation";
+
 const PrincipalCharsVotes = () => {
-  const { loading, error, data } = useQuery(PRINCIPAL_CHARACTERS_VOTES);
+  const [characters, setCharacters] = useState([]);
+  const { loading, error, data: votes } = useQuery(PRINCIPAL_CHARACTERS_VOTES);
+  const [addVote] = useMutation(ADD_VOTE, {
+    update: (__, mutationResult) => {
+      console.log(mutationResult.data);
+    },
+  });
+  useSubscription(CHANGE_VOTES_LISTENER); //executes query
+
+  useEffect(() => {
+    if (votes) {
+      setCharacters(votes.characters);
+    }
+  }, [votes]);
 
   if (loading) return <Loading />;
   if (error) return <p>Error :(</p>;
-  const { characters } = data;
+
   let labels = [];
   let values = [];
   if (!loading) {
@@ -20,7 +36,14 @@ const PrincipalCharsVotes = () => {
     });
   }
 
-  const tableValues = ['Name', 'Actor', 'Info', 'Total Episodes', 'Votes'];
+  const voteCharacter = (characterId) =>
+    addVote({
+      variables: {
+        character: characterId,
+      },
+    });
+
+  const tableValues = ["Name", "Actor", "Info", "Total Episodes", "Votes"];
 
   return (
     <>
@@ -36,8 +59,13 @@ const PrincipalCharsVotes = () => {
               />
             </div>
             <div className="col d-grid gap-2">
-              {characters.map((character, index) => (
-                <Button key={index} label={character.name} />
+              {characters.map((character) => (
+                <Button
+                  key={character.id}
+                  label={character.name}
+                  characterId={character.id}
+                  voteCharacter={voteCharacter}
+                />
               ))}
             </div>
           </div>
@@ -48,9 +76,11 @@ const PrincipalCharsVotes = () => {
               <table className="table">
                 <thead>
                   <tr>
-                    {
-                      tableValues.map((value) => <th className="text-center">{value}</th>)
-                    }
+                    {tableValues.map((value, index) => (
+                      <th className="text-center" key={index}>
+                        {value}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
 
