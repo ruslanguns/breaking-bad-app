@@ -28,7 +28,17 @@ const Header = () => {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                Home
+                Principal Characters
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to={PATHS.ALL_CHARACTERS}
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                All Characters
               </NavLink>
             </li>
             <li className="nav-item">

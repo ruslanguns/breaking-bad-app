@@ -6,6 +6,7 @@ import { Loading, BarChart, Button, PageTitle } from "../components/";
 import { PRINCIPAL_CHARACTERS_VOTES } from "../graphql/operations/query";
 import { CHANGE_VOTES_LISTENER } from "../graphql/operations/subscription";
 import { ADD_VOTE } from "../graphql/operations/mutation";
+import { navigateTo } from "../helpers/navigate";
 
 const PrincipalCharsVotes = () => {
   const [characters, setCharacters] = useState([]);
@@ -43,7 +44,16 @@ const PrincipalCharsVotes = () => {
       },
     });
 
-  const tableValues = ["Name", "Actor", "Info", "Total Episodes", "Votes"];
+  const showDetails = (characterId) => navigateTo("details", characterId);
+
+  const tableValues = [
+    "Name",
+    "Actor",
+    "Info",
+    "Total Episodes",
+    "Votes",
+    "Details",
+  ];
 
   return (
     <>
@@ -63,8 +73,8 @@ const PrincipalCharsVotes = () => {
                 <Button
                   key={character.id}
                   label={character.name}
-                  characterId={character.id}
-                  voteCharacter={voteCharacter}
+                  param={character.id}
+                  action={voteCharacter}
                 />
               ))}
             </div>
@@ -85,8 +95,8 @@ const PrincipalCharsVotes = () => {
                 </thead>
 
                 <tbody>
-                  {characters.map((character, index) => (
-                    <tr key={index}>
+                  {characters.map((character) => (
+                    <tr key={character.id}>
                       <td>{character["name"]}</td>
                       <td>{character["actor"]}</td>
                       <td>
@@ -100,6 +110,14 @@ const PrincipalCharsVotes = () => {
                       </td>
                       <td>{character["total_episodes"]}</td>
                       <td>{character["votes"]}</td>
+                      <td>
+                        <Button
+                          key={character.id}
+                          label={`Details`}
+                          param={character.id}
+                          action={showDetails}
+                        />
+                      </td>
                     </tr>
                   ))}
                 </tbody>

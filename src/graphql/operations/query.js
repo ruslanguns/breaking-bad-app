@@ -5,9 +5,26 @@ export const PRINCIPAL_CHARACTERS_VOTES = gql`
     characters {
       id
       name
-      actor
+      description
+      portrayed: actor
       total_episodes
       votes
+      url
+      img: photo
+    }
+  }
+`;
+
+export const GET_CHARACTER = gql`
+  query detailsCharacter($id: ID!){
+    character(id: $id) {
+      id
+      total_episodes
+      votes
+      name
+      actor
+      description
+      photo
       url
     }
   }

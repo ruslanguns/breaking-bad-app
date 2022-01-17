@@ -1,23 +1,25 @@
-import { useFetchApi } from "./../hooks/useFetchApi";
-import { API_URL_BASE, API_ENDPOINTS } from "./../helpers/urls";
+import { useQuery } from "@apollo/client";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
 import PageTitle from "../components/PageTitle";
+import { PRINCIPAL_CHARACTERS_VOTES } from "../graphql/operations/query";
 
 const Home = () => {
-  const { loading, data } = useFetchApi(
-    `${API_URL_BASE}${API_ENDPOINTS.CHARACTERS}`
-  );
+  const { loading, error, data } = useQuery(PRINCIPAL_CHARACTERS_VOTES);
+  const characters = !!data && data.characters;
+  if (error) return <p>Error :(</p>;
   return (
     <>
-      <PageTitle title={"Home"} />
       {loading && <Loading />}
       {!loading && (
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-          {data.map((character, index) => (
-            <Card character={character} key={index} />
-          ))}
-        </div>
+        <>
+          <PageTitle title={"Principal Characters"} />
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+            {characters.map((character, index) => (
+              <Card character={character} key={index} />
+            ))}
+          </div>
+        </>
       )}
     </>
   );

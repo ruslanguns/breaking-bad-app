@@ -1,11 +1,11 @@
 import "./../styles/components.css";
 import PropTypes from "prop-types";
 
-const Button = ({ label, characterId, voteCharacter }) => {
+const Button = ({ label, param, action }) => {
   return (
     <>
       <button className="btn btn-info btn-lg btn-block custom-button"
-        onClick={() => voteCharacter(characterId)}>
+        onClick={() => action(param)}>
         {label}
       </button>
     </>

@@ -9,3 +9,14 @@ export const CHANGE_VOTES_LISTENER = gql`
     }
   }
 `;
+
+
+export const CHANGE_VOTE_LISTENER = gql`
+    subscription characterVoteCount($id: ID!) {
+        changeVote(id: $id) {
+            id
+            name
+            votes
+        }
+    }
+`;
