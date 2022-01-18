@@ -20,7 +20,10 @@ export const Details = () => {
       console.log(mutationResult.data);
     },
   });
-  useSubscription(CHANGE_VOTE_LISTENER);
+  useSubscription(CHANGE_VOTE_LISTENER, { variables: {
+    id: idProduct,
+  },});
+  
   useEffect(() => {
     if (data) {
       setCharacter(data.character);

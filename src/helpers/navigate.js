@@ -7,10 +7,10 @@
  */
  export const navigateTo = (path, params) => {
      if (params) {
-        window.location.href = window.location.origin.concat(`/${path}/${params}`);
+        window.location.href = window.location.origin.concat(`/breaking-bad-app/${path}/${params}`);
         return;
      }
-     window.location.href = window.location.origin.concat(`/${path}`);
+     window.location.href = window.location.origin.concat(`/breaking-bad-app/${path}`);
    
   };
 
