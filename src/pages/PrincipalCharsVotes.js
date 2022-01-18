@@ -6,7 +6,7 @@ import { Loading, BarChart, Button, PageTitle } from "../components/";
 import { PRINCIPAL_CHARACTERS_VOTES } from "../graphql/operations/query";
 import { CHANGE_VOTES_LISTENER } from "../graphql/operations/subscription";
 import { ADD_VOTE } from "../graphql/operations/mutation";
-import { navigateTo } from "../helpers/navigate";
+import { NavLink } from "react-router-dom";
 
 const PrincipalCharsVotes = () => {
   const [characters, setCharacters] = useState([]);
@@ -44,7 +44,7 @@ const PrincipalCharsVotes = () => {
       },
     });
 
-  const showDetails = (characterId) => navigateTo("details", characterId);
+  //const showDetails = (characterId) => navigateTo("details", characterId);
 
   const tableValues = [
     "Name",
@@ -111,12 +111,10 @@ const PrincipalCharsVotes = () => {
                       <td>{character["total_episodes"]}</td>
                       <td>{character["votes"]}</td>
                       <td>
-                        <Button
-                          key={character.id}
-                          label={`Details`}
-                          param={character.id}
-                          action={showDetails}
-                        />
+                      <NavLink to={`/breaking-bad-app/details/${character.id}`} className="btn btn-info btn-lg btn-block custom-button">
+                        Details
+                      </NavLink>
+                        
                       </td>
                     </tr>
                   ))}
