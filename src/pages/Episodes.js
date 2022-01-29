@@ -19,7 +19,7 @@ const Episodes = () => {
             <thead>
               <tr>
                 {tableValues.map((value) => (
-                  <th className="text-center">{value}</th>
+                  <th key={value.toLowerCase()}className="text-center">{value}</th>
                 ))}
               </tr>
             </thead>
