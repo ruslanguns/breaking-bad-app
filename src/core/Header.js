@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { PATHS } from "./../helpers/paths";
-
+import { useTranslation } from "react-i18next";
 const Header = () => {
+  
+const { t } = useTranslation();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container-fluid">
@@ -28,7 +30,7 @@ const Header = () => {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                Principal Characters
+                { t("navbar.home") }
               </NavLink>
             </li>
             <li className="nav-item">
@@ -38,7 +40,7 @@ const Header = () => {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                All Characters
+                { t("navbar.characters") }
               </NavLink>
             </li>
             <li className="nav-item">
@@ -48,7 +50,7 @@ const Header = () => {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                Episodes
+                { t("navbar.episodes") }
               </NavLink>
             </li>
 
@@ -59,7 +61,7 @@ const Header = () => {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                Votes
+                { t("navbar.home") }
               </NavLink>
             </li>
           </ul>
