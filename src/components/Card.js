@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import { Button } from ".";
 import { openExternalURL } from "../helpers/navigate";
-
-const Card = ({ character }) => {
+const Card = ({ character, useLabel = "Más" }) => {
   const goToMoreDetails = (url) => openExternalURL(url);
   return (
     <div className="col" key={character.char_id}>
@@ -25,7 +24,7 @@ const Card = ({ character }) => {
               
               <Button
                 key={`Wiki_${character.id}`}
-                label={"Más información"}
+                label={useLabel}
                 param={character.url}
                 action={goToMoreDetails}
               />
@@ -35,7 +34,7 @@ const Card = ({ character }) => {
               <p className="card-text">{character.occupation.join(", ")}</p>
               <p className="card-text">
                 <small className="text-muted">
-                  Appearance Seasons: {character.appearance.join(", ")}
+                  {useLabel} {character.appearance.join(", ")}
                 </small>
               </p>
               </>

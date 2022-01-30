@@ -11,12 +11,12 @@ const AllCharacters = () => {
   );
   return (
     <>
-      <PageTitle title={"All Characters"} />
+      <PageTitle title={t("title.characters")} />
       {loading && <Loading />}
       {!loading && (
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {data.map((character, index) => (
-            <Card character={character} key={index} />
+            <Card character={character} useLabel={t("pages.characters.appearance_seasons")} key={index} />
           ))}
         </div>
       )}

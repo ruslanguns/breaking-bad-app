@@ -7,8 +7,9 @@ import { PRINCIPAL_CHARACTERS_VOTES } from "../graphql/operations/query";
 import { CHANGE_VOTES_LISTENER } from "../graphql/operations/subscription";
 import { ADD_VOTE } from "../graphql/operations/mutation";
 import { NavLink } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 const PrincipalCharsVotes = () => {
+  const { t } = useTranslation();
   const [characters, setCharacters] = useState([]);
   const { loading, error, data: votes } = useQuery(PRINCIPAL_CHARACTERS_VOTES);
   const [addVote] = useMutation(ADD_VOTE, {
@@ -46,24 +47,25 @@ const PrincipalCharsVotes = () => {
 
   //const showDetails = (characterId) => navigateTo("details", characterId);
 
+  const keyI18n = "pages.votes";
   const tableValues = [
-    "Name",
-    "Actor",
-    "Info",
-    "Total Episodes",
-    "Votes",
-    "Details",
+    `${keyI18n}.name`,
+    `${keyI18n}.actor`,
+    `${keyI18n}.info`,
+    `${keyI18n}.total_episodes`,
+    `${keyI18n}.votes`,
+    `${keyI18n}.details`,
   ];
 
   return (
     <>
-      <PageTitle title={"Principal Characters Votes"} />
+      <PageTitle title={t("title.votes")} />
       {!loading && (
         <>
           <div className="row">
             <div className="col-9">
               <BarChart
-                titleChart={"Vote count bar chart"}
+                titleChart={t("pages.votes.vote_count_for_chart")}
                 labels={labels}
                 dataValues={values}
               />
@@ -86,9 +88,9 @@ const PrincipalCharsVotes = () => {
               <table className="table">
                 <thead>
                   <tr>
-                    {tableValues.map((value, index) => (
+                    {tableValues.map((values, index) => (
                       <th className="text-center" key={index}>
-                        {value}
+                        {t(values)}
                       </th>
                     ))}
                   </tr>
@@ -98,7 +100,7 @@ const PrincipalCharsVotes = () => {
                   {characters.map((character) => (
                     <tr key={character.id}>
                       <td>{character["name"]}</td>
-                      <td>{character["actor"]}</td>
+                      <td>{character["portrayed"]}</td>
                       <td>
                         <a
                           href={character["url"]}
@@ -111,10 +113,12 @@ const PrincipalCharsVotes = () => {
                       <td>{character["total_episodes"]}</td>
                       <td>{character["votes"]}</td>
                       <td>
-                      <NavLink to={`/breaking-bad-app/details/${character.id}`} className="btn btn-info btn-lg btn-block custom-button">
-                        Details
-                      </NavLink>
-                        
+                        <NavLink
+                          to={`/breaking-bad-app/details/${character.id}`}
+                          className="btn btn-info btn-lg btn-block custom-button"
+                        >
+                          {t(`${keyI18n}.details`)}
+                        </NavLink>
                       </td>
                     </tr>
                   ))}

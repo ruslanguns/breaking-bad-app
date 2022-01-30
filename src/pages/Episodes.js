@@ -2,16 +2,18 @@ import { useFetchApi } from "./../hooks/useFetchApi";
 import { API_URL_BASE, API_ENDPOINTS } from "./../helpers/urls";
 import Loading from "../components/Loading";
 import PageTitle from "../components/PageTitle";
-
+import { useTranslation } from "react-i18next";
 const Episodes = () => {
+  const { t } = useTranslation();
   const { loading, data } = useFetchApi(
     `${API_URL_BASE}${API_ENDPOINTS.EPISODES}`
   );
-  const tableValues = ["Season", "Episode", "Title", "Air date", "Characters"];
+  const keyI18n = "pages.episodes"
+  const tableValues = [`${keyI18n}.season`, `${keyI18n}.episode`, `${keyI18n}.title`, `${keyI18n}.air_date`, `${keyI18n}.characters`];
 
   return (
     <>
-      <PageTitle title={"List of episodes"} />
+      <PageTitle title={t("title.episodes")} />
       {loading && <Loading />}
       {!loading && (
         <div className="table-responsive">
@@ -19,7 +21,9 @@ const Episodes = () => {
             <thead>
               <tr>
                 {tableValues.map((value) => (
-                  <th key={value.toLowerCase()}className="text-center">{value}</th>
+                  <th key={value.toLowerCase()} className="text-center">
+                    {t(value)}
+                  </th>
                 ))}
               </tr>
             </thead>

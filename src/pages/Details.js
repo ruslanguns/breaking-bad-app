@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 import { useQuery, useMutation, useSubscription } from "@apollo/client";
 import { GET_CHARACTER } from "../graphql/operations/query";
 import { ADD_VOTE } from "../graphql/operations/mutation";
@@ -8,6 +8,7 @@ import { CHANGE_VOTE_LISTENER } from "../graphql/operations/subscription";
 import { Loading, PageTitle, Button } from "../components";
 import { openExternalURL } from "../helpers/navigate";
 export const Details = () => {
+  const { t } = useTranslation();
   const [idProduct] = useState(useParams().id);
   const [character, setCharacter] = useState({});
   const { loading, error, data } = useQuery(GET_CHARACTER, {
@@ -20,10 +21,12 @@ export const Details = () => {
       console.log(mutationResult.data);
     },
   });
-  useSubscription(CHANGE_VOTE_LISTENER, { variables: {
-    id: idProduct,
-  },});
-  
+  useSubscription(CHANGE_VOTE_LISTENER, {
+    variables: {
+      id: idProduct,
+    },
+  });
+
   useEffect(() => {
     if (data) {
       setCharacter(data.character);
@@ -55,18 +58,18 @@ export const Details = () => {
               />
             </div>
             <div className="col-lg">
-              <h5 className="my-3">{character.votes} votos.</h5>
+              <h5 className="my-3">{character.votes} {t("pages.details.votes")}</h5>
               <p>{character.description}</p>
               <Button
                 key={character.id}
-                label={`Votar a ${character.name}`}
+                label={`${t("pages.details.vote_lbl")} ${character.name}`}
                 param={character.id}
                 action={voteCharacter}
               />
               &nbsp;
               <Button
                 key={`Wiki_${character.id}`}
-                label={"Más información"}
+                label={t("pages.details.more_info")}
                 param={character.url}
                 action={goToMoreDetails}
               />

@@ -21,7 +21,7 @@ const Home = () => {
           <PageTitle title={t("title.home")} />
           <div className="row row-cols-1 row-cols-md-3 g-4">
             {characters.map((character, index) => (
-              <Card character={character} key={index} />
+              <Card character={character} useLabel={t("pages.home.more_info")} key={index} />
             ))}
           </div>
         </>

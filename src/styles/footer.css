@@ -1,0 +1,14 @@
+.langs-link {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  color: white;
+}
+
+.langs-link:hover {
+    text-decoration: underline;
+}
+
+.langs-link.active {
+    text-decoration: underline;
+}
