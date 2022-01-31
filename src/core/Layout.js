@@ -5,9 +5,10 @@ import Episodes from "./../pages/Episodes";
 import Header from "./Header";
 import AllCharacters from "../pages/AllCharacters";
 import PrincipalCharsVotes from "../pages/PrincipalCharsVotes";
-import { Details } from "../pages/Details";
+import Details from "../pages/Details";
 import Home from "../pages/Home";
 
+// https://benestudio.co/how-to-lazy-load-your-react-components/
 const Layout = () => {
   return (
     <>

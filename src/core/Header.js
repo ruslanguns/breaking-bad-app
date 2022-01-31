@@ -2,8 +2,7 @@ import { NavLink } from "react-router-dom";
 import { PATHS } from "./../helpers/paths";
 import { useTranslation } from "react-i18next";
 const Header = () => {
-  
-const { t } = useTranslation();
+  const { t } = useTranslation("navbar");
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container-fluid">
@@ -30,7 +29,7 @@ const { t } = useTranslation();
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                { t("navbar.home") }
+                {t("home")}
               </NavLink>
             </li>
             <li className="nav-item">
@@ -40,7 +39,7 @@ const { t } = useTranslation();
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                { t("navbar.characters") }
+                {t("characters")}
               </NavLink>
             </li>
             <li className="nav-item">
@@ -50,7 +49,7 @@ const { t } = useTranslation();
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                { t("navbar.episodes") }
+                {t("episodes")}
               </NavLink>
             </li>
 
@@ -61,7 +60,7 @@ const { t } = useTranslation();
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                { t("navbar.home") }
+                {t("votes")}
               </NavLink>
             </li>
           </ul>

@@ -7,7 +7,7 @@ import { ADD_VOTE } from "../graphql/operations/mutation";
 import { CHANGE_VOTE_LISTENER } from "../graphql/operations/subscription";
 import { Loading, PageTitle, Button } from "../components";
 import { openExternalURL } from "../helpers/navigate";
-export const Details = () => {
+const Details = () => {
   const { t } = useTranslation();
   const [idProduct] = useState(useParams().id);
   const [character, setCharacter] = useState({});
@@ -80,3 +80,4 @@ export const Details = () => {
     </>
   );
 };
+export default Details;

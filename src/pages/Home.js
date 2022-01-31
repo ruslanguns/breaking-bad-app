@@ -7,7 +7,7 @@ import "./../configs/i18n";
 import { useTranslation } from "react-i18next";
 // import { useSetLanguage } from "../hooks/useSetLanguage";
 const Home = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("home");
   const { loading, error, data } = useQuery(PRINCIPAL_CHARACTERS_VOTES);
   // const {lang } = useSetLanguage();
   const characters = !!data && data.characters;
@@ -18,10 +18,10 @@ const Home = () => {
       {loading && <Loading />}
       {!loading && (
         <>
-          <PageTitle title={t("title.home")} />
+          <PageTitle title={t("title")} />
           <div className="row row-cols-1 row-cols-md-3 g-4">
             {characters.map((character, index) => (
-              <Card character={character} useLabel={t("pages.home.more_info")} key={index} />
+              <Card character={character} useLabel={t("more_info")} key={index} />
             ))}
           </div>
         </>

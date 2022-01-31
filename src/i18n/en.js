@@ -15,21 +15,24 @@ const NAVBAR = {
 const PAGES = {
   characters: {
     appearance_seasons: "Appearance Seasons",
+    title: "All characters",
   },
   details: {
     more_info: "More info",
     vote_lbl: "Vote ",
-    votes: " votes."
+    votes: " votes.",
   },
   episodes: {
     air_date: "Air date",
     characters: "Characters",
     episode: "Episode",
     season: "Season",
-    title: "Title",
+    title: "List of episodes",
+    title_table: "Title",
   },
   home: {
     more_info: "More info",
+    title: "Principal characters",
   },
   votes: {
     actor: "Actor",
@@ -37,24 +40,19 @@ const PAGES = {
     episodes: "Episodes",
     info: "Info",
     name: "Name",
+    title: "Principal Characters Votes",
     total_episodes: "Total episodes",
     vote_count_for_chart: "Vote count bar chart",
     votes: "Votes",
   },
 };
 
-const TITLE = {
-  characters: "All characters",
-  episodes: "List of episodes",
-  home: "Principal characters",
-  votes: "Principal Characters Votes",
-};
-
 export const EN_I18N = {
-  translation: {
-    languages: LANGUAGES,
-    navbar: NAVBAR,
-    pages: PAGES,
-    title: TITLE,
-  },
+  languages: LANGUAGES,
+  navbar: NAVBAR,
+  characters: PAGES.characters,
+  episodes: PAGES.episodes,
+  details: PAGES.details,
+  home: PAGES.home,
+  votes: PAGES.votes
 };
