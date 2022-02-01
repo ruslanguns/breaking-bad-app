@@ -4,6 +4,7 @@ import { shallow, mount } from "enzyme";
 import App from "../App";
 import { ApolloProvider } from "@apollo/client";
 
+
 describe("Pruebas en App", () => {
   let wrapper;
   const clientConfig = jest.fn();
@@ -16,7 +17,8 @@ describe("Pruebas en App", () => {
 
   test("Debe de mostrar componentes asociados", () => {
     expect(wrapper.find("ApolloProvider").length).toBe(1);
-    expect(wrapper.find("Layout").length).toBe(1);
+    // Cargando mientras trae la información
+    expect(wrapper.find("Loadable").length).toBe(1);
   });
 
   test("Comprobar que se añade correctamente la inicializacion de ApolloProvider", () => {

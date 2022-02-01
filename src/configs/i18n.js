@@ -26,7 +26,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    debug: true,
+    debug: false,
     fallbackLng: lng,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
@@ -41,40 +41,5 @@ i18n
       useSuspense: false
     }
   });
-
-/*i18n.use(initReactI18next).init({
-  lng,
-  debug: true,
-  keySeparator: false,
-  fallbackLng: 'en',
-  interpolation: {
-    escapeValue: false,
-  },
-  resources: {
-    en: {
-      translation: {
-        languages: {
-          english: "English",
-          spanish: "Spanish",
-          basque: "Basque",
-        },
-        title: {
-          characters: "All Characters",
-          episodes: "List of episodes",
-          home: "Principal characters",
-          votes: "Principal Characters Votes",
-        },
-      },
-    },
-    de: {
-      namespace1: {
-        key: "hallo von namespace 1",
-      },
-      namespace2: {
-        key: "hallo von namespace 2",
-      },
-    },
-  },
-});*/
 
 export default i18n;

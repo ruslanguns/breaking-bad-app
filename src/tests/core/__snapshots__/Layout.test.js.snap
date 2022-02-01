@@ -12,8 +12,16 @@ exports[`Pruebas en Layout Debe de mostrar <Layout /> correctamente 1`] = `
         path="/breaking-bad-app"
       />
       <Route
+        element={<AllCharacters />}
+        path="/breaking-bad-app/all-characters"
+      />
+      <Route
         element={<Episodes />}
         path="/breaking-bad-app/episodes"
+      />
+      <Route
+        element={<Details />}
+        path="/breaking-bad-app/details/:id"
       />
       <Route
         element={<PrincipalCharsVotes />}

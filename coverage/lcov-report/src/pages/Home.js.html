@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>1/7</span>
             </div>
         
             
@@ -89,16 +89,36 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,35 +126,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useFetchApi } from "./../hooks/useFetchApi";
-import { API_URL_BASE, API_ENDPOINTS } from "./../helpers/urls";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useQuery } from "@apollo/client";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
 import PageTitle from "../components/PageTitle";
-&nbsp;
+import { PRINCIPAL_CHARACTERS_VOTES } from "../graphql/operations/query";
+import "./../configs/i18n";
+import { useTranslation } from "react-i18next";
+// import { useSetLanguage } from "../hooks/useSetLanguage";
 const Home = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-  const { loading, data } = <span class="cstat-no" title="statement not covered" >useFetchApi(</span>
-    `${API_URL_BASE}${API_ENDPOINTS.CHARACTERS}`
-  );
+  const { t } = <span class="cstat-no" title="statement not covered" >useTranslation("home");</span>
+  const { loading, error, data } = <span class="cstat-no" title="statement not covered" >useQuery(PRINCIPAL_CHARACTERS_VOTES);</span>
+  // const {lang } = useSetLanguage();
+  const characters = <span class="cstat-no" title="statement not covered" >!!data &amp;&amp; data.characters;</span>
+<span class="cstat-no" title="statement not covered" >  if (error) <span class="cstat-no" title="statement not covered" >return &lt;p&gt;Error :(&lt;/p&gt;;</span></span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;&gt;
-      &lt;PageTitle title={"Home"} /&gt;
       {loading &amp;&amp; &lt;Loading /&gt;}
       {!loading &amp;&amp; (
-        &lt;div className="row row-cols-1 row-cols-md-3 g-4"&gt;
-          {data.map(<span class="fstat-no" title="function not covered" >(c</span>haracter, index) =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;Card character={character} key={index} /&gt;</span>
-          ))}
-        &lt;/div&gt;
+        &lt;&gt;
+          &lt;PageTitle title={t("title")} /&gt;
+          &lt;div className="row row-cols-1 row-cols-md-3 g-4"&gt;
+            {characters.map(<span class="fstat-no" title="function not covered" >(c</span>haracter, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >              &lt;Card character={character} useLabel={t("more_info")} key={index} /&gt;</span>
+            ))}
+          &lt;/div&gt;
+        &lt;/&gt;
       )}
     &lt;/&gt;
   );
@@ -148,7 +169,7 @@ export default Home;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Tue Dec 28 2021 18:15:17 GMT+0100 (Central European Standard Time)
+                at Tue Feb 01 2022 20:22:58 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

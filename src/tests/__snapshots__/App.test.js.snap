@@ -1249,6 +1249,6 @@ exports[`Pruebas en App Debe de mostrar <App /> correctamente 1`] = `
     }
   }
 >
-  <Layout />
+  <Loadable />
 </ApolloProvider>
 `;

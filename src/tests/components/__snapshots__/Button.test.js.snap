@@ -4,6 +4,7 @@ exports[`Pruebas en Button Debe de mostrar <Button /> correctamente 1`] = `
 <Fragment>
   <button
     className="btn btn-info btn-lg btn-block custom-button"
+    onClick={[Function]}
   >
     Anartz
   </button>

@@ -1,11 +1,15 @@
 import "./../styles/components.css";
 import PropTypes from "prop-types";
 
-const Button = ({ label, param, action }) => {
+const Button = ({
+  label,
+  param,
+  action,
+  btnClass = "btn btn-info btn-lg btn-block custom-button",
+}) => {
   return (
     <>
-      <button className="btn btn-info btn-lg btn-block custom-button"
-        onClick={() => action(param)}>
+      <button className={btnClass} onClick={() => action(param)}>
         {label}
       </button>
     </>

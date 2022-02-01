@@ -1,21 +1,30 @@
 import React from "react";
+
 import "@testing-library/jest-dom";
 import { shallow } from "enzyme";
 import Header from "../../core/Header";
 
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: key => key,
+    i18n: { changeLanguage: jest.fn() }
+  })
+}));
+
 describe("Pruebas en Header", () => {
+ 
   const wrapper = shallow(<Header />);
 
   test("Debe de mostrar <Header /> correctamente", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("Debe de comprobar que tenemos 4 'NavLinks'", () => {
-    expect(wrapper.find("NavLink").length).toBe(4);
+  test("Debe de comprobar que tenemos 5 'NavLinks'", () => {
+    expect(wrapper.find("NavLink").length).toBe(5);
   });
 
   test("Comprobando los textos de los 'NavLink'", () => {
-    const labels = ["Breaking Bad", "Home", "Episodes", "Votes"];
+    const labels = ["Breaking Bad", "home", "characters", "episodes", "votes"];
     labels.map((element, index) =>
       expect(wrapper.find("NavLink").at(index).text()).toBe(element)
     );
@@ -42,4 +51,8 @@ describe("Pruebas en Header", () => {
     expect(wrapper.find("NavLink").at(2).prop("className")).toBeTruthy()
     expect(wrapper.find("NavLink").at(3).prop("className")).toBeTruthy()
   });
+
+  test("Comprobar que funciona bien lo de i18n", () => {
+    // expect(wrapper.getByText('json.field.in.translation')).toBeDefined();
+  })
 });

@@ -56,5 +56,11 @@
     "gh-pages": "^3.2.3",
     "vercel": "^23.1.2"
   },
-  "homepage": "https://react-projects-2022.github.io/breaking-bad-app/"
+  "homepage": "https://react-projects-2022.github.io/breaking-bad-app/",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts,tsx}",
+      "!src/**/index.js"
+    ]
+  }
 }

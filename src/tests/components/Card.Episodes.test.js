@@ -1,7 +1,7 @@
 import Card from "../../components/Card";
 import { shallow } from "enzyme";
 
-describe("Pruebas de <Card />", () => {
+describe("Pruebas de <Card /> en 'All Characters'", () => {
   const character = {
     char_id: 3,
     name: "Skyler White",
@@ -20,7 +20,9 @@ describe("Pruebas de <Card />", () => {
     category: "Breaking Bad",
     better_call_saul_appearance: [],
   };
-  const wrapper = shallow(<Card character={character} />);
+  const wrapper = shallow(
+    <Card character={character} useLabel={"Appearance Seasons:"} />
+  );
 
   test("Debe de mostrar <Button /> correctamente", () => {
     expect(wrapper).toMatchSnapshot();

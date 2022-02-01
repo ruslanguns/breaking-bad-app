@@ -5,8 +5,31 @@ exports[`Pruebas en Footer Debe de mostrar <Footer /> correctamente 1`] = `
   className="footer"
 >
   <p>
-    Breaking Bad with React - Anartz Mugika Ledo - 
-    2021
+    Breaking Bad with React - Anartz Mugika Ledo -
+      
+    2022
+     
+     /   label 
+    <button
+      className="langs-link active"
+      onClick={[Function]}
+    >
+      english
+    </button>
+     
+    <button
+      className="langs-link es"
+      onClick={[Function]}
+    >
+      spanish
+    </button>
+     
+    <button
+      className="langs-link eu"
+      onClick={[Function]}
+    >
+      basque
+    </button>
   </p>
 </div>
 `;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas de <Card /> Debe de mostrar <Button /> correctamente 1`] = `
+exports[`Pruebas de <Card /> en 'All Characters' Debe de mostrar <Button /> correctamente 1`] = `
 <div
   className="col"
   key="3"
@@ -41,7 +41,8 @@ exports[`Pruebas de <Card /> Debe de mostrar <Button /> correctamente 1`] = `
         <small
           className="text-muted"
         >
-          Appearance Seasons: 
+          Appearance Seasons:
+           
           1, 2, 3, 4, 5
         </small>
       </p>

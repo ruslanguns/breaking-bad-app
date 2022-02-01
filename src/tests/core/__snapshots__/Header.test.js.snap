@@ -40,7 +40,17 @@ exports[`Pruebas en Header Debe de mostrar <Header /> correctamente 1`] = `
             className={[Function]}
             to="/breaking-bad-app"
           >
-            Home
+            home
+          </NavLink>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            className={[Function]}
+            to="/breaking-bad-app/all-characters"
+          >
+            characters
           </NavLink>
         </li>
         <li
@@ -50,7 +60,7 @@ exports[`Pruebas en Header Debe de mostrar <Header /> correctamente 1`] = `
             className={[Function]}
             to="/breaking-bad-app/episodes"
           >
-            Episodes
+            episodes
           </NavLink>
         </li>
         <li
@@ -60,7 +70,7 @@ exports[`Pruebas en Header Debe de mostrar <Header /> correctamente 1`] = `
             className={[Function]}
             to="/breaking-bad-app/votes"
           >
-            Votes
+            votes
           </NavLink>
         </li>
       </ul>

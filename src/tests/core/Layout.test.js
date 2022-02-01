@@ -18,11 +18,11 @@ describe("Pruebas en Layout", () => {
 
   test("Comprobar que elemento Routes y sus Route inidividuales están OK", () => {
     expect(wrapper.find('Routes').exists()).toBe(true);
-    expect(wrapper.find('Route').length).toBe(3);
+    expect(wrapper.find('Route').length).toBe(5);
   });
 
   test("Comprobando paths de los 'Route'", () => {
-    const labels = ["", "/episodes", "/votes"];
+    const labels = ["", "/all-characters", "/episodes", "/details/:id", "/votes" ];
     labels.map((element, index) =>
       expect(wrapper.find("Route").at(index).prop('path')).toBe(`/breaking-bad-app${element}`)
     );

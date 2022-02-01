@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas de <Card /> en 'Principal Characters' Debe de mostrar <Button /> correctamente 1`] = `
+<div
+  className="col"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="image-section"
+    >
+      <img
+        alt="Walter White"
+        className="card-img-top"
+        src="https://raw.githubusercontent.com/graphql-course/5-breaking-bad-graphql-voting/master/photos/BB-S5B-Walt-590.jpg"
+      />
+      <span
+        className="bottom-left"
+      >
+        Bryan Cranston
+      </span>
+    </div>
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Walter White
+      </h5>
+      <p
+        className="card-text truncate"
+      >
+        Walter "Walt" Hartwell White, también conocido por su seudónimo clandestino "Heisenberg", es un químico y profesor de química de Albuquerque, Nuevo México que, tras ser diagnosticado con cáncer de pulmón inoperable, decide empezar a fabricar metanfetamina para poder mantener a su familia provista de cara al futuro"
+      </p>
+      <Button
+        action={[Function]}
+        key="Wiki_1"
+        label="More info"
+        param="https://es.wikipedia.org/wiki/Walter_White"
+      />
+    </div>
+  </div>
+</div>
+`;

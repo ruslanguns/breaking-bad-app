@@ -50,5 +50,6 @@ const Card = ({ character, useLabel = "Más" }) => {
 // Para obligar pasar el argumento para el objeto
 Card.propTypes = {
   character: PropTypes.object.isRequired,
+  useLabel: PropTypes.string
 };
 export default Card;
