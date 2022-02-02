@@ -1,20 +1,25 @@
-import { useFetchApi } from "./../hooks/useFetchApi";
 import { API_URL_BASE, API_ENDPOINTS } from "./../helpers/urls";
 import Loading from "../components/Loading";
 import PageTitle from "../components/PageTitle";
 import { useTranslation } from "react-i18next";
+import useSWR from "swr";
+import { fetcher } from "../helpers/fetcher";
 const Episodes = () => {
   const { t } = useTranslation("episodes");
-  const { loading, data } = useFetchApi(
-    `${API_URL_BASE}${API_ENDPOINTS.EPISODES}`
-  );
-  const tableValues = [`season`, `episode`, `title_table`, `air_date`, `characters`];
+  const { data } = useSWR(`${API_URL_BASE}${API_ENDPOINTS.EPISODES}`, fetcher);
+  const tableValues = [
+    `season`,
+    `episode`,
+    `title_table`,
+    `air_date`,
+    `characters`,
+  ];
 
   return (
     <>
       <PageTitle title={t("title")} />
-      {loading && <Loading />}
-      {!loading && (
+      {!data && <Loading />}
+      {data && (
         <div className="table-responsive">
           <table className="table">
             <thead>
