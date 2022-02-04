@@ -14,9 +14,9 @@ const Footer = () => {
       <p>
         Breaking Bad with React - Anartz Mugika Ledo -{"  "}
         {new Date().getUTCFullYear()} {` /   ${t("label")} `}
-        <button className={`langs-link ${selectLanguage === "en" ? "active" : "en"}`} onClick={() => changeLanguage('en')}>{englishText}</button>{" "}
-        <button className={`langs-link ${selectLanguage === "es"? "active" : "es"}`} onClick={() => changeLanguage('es')}>{t("spanish")}</button>{" "}
-        <button className={`langs-link ${selectLanguage === "eu"? "active" : "eu"}`} onClick={() => changeLanguage('eu')}>{t('basque')}</button>
+        <button data-testid="en-trans" className={`langs-link en ${selectLanguage === "en" ? "active" : ""}`} onClick={() => changeLanguage('en')}>{englishText}</button>{" "}
+        <button data-testid="es-trans" className={`langs-link es ${selectLanguage === "es"? "active" : ""}`} onClick={() => changeLanguage('es')}>{t("spanish")}</button>{" "}
+        <button data-testid="eu-trans" className={`langs-link eu ${selectLanguage === "eu"? "active" : ""}`} onClick={() => changeLanguage('eu')}>{t('basque')}</button>
       </p>
     </div>
   );

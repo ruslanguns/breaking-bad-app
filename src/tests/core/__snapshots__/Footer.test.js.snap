@@ -11,21 +11,24 @@ exports[`Pruebas en Footer Debe de mostrar <Footer /> correctamente 1`] = `
      
      /   label 
     <button
-      className="langs-link active"
+      className="langs-link en active"
+      data-testid="en-trans"
       onClick={[Function]}
     >
       english
     </button>
      
     <button
-      className="langs-link es"
+      className="langs-link es "
+      data-testid="es-trans"
       onClick={[Function]}
     >
       spanish
     </button>
      
     <button
-      className="langs-link eu"
+      className="langs-link eu "
+      data-testid="eu-trans"
       onClick={[Function]}
     >
       basque

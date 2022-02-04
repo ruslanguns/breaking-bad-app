@@ -25,4 +25,5 @@ https://www.codementor.io/@rajjeet/getting-started-with-testing-in-react-react-t
 
 Use mock to testing i18n apps
 https://balavishnuvj.com/blog/testing-i18n-with-react-testing-library/
+https://codesandbox.io/s/vot1o?file=/src/renderWithi18next.js
 
