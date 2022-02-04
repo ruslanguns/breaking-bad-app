@@ -1,5 +1,4 @@
 import Card from "../components/Card";
-import Loading from "../components/Loading";
 import PageTitle from "../components/PageTitle";
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
@@ -25,8 +24,7 @@ const AllCharacters = () => {
               key={index}
             />
           ))}
-        </div>
-      )}
+      </div>
     </>
   );
 };
